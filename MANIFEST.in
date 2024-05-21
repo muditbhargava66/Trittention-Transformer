@@ -1,0 +1,10 @@
+include LICENSE
+include README.md
+include pyproject.toml
+
+recursive-include config *.py
+recursive-include data *
+recursive-include examples *.py
+recursive-include models *.py
+recursive-include tests *.py
+recursive-include utils *.py
