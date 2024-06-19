@@ -36,9 +36,8 @@ jobs:
 
     - name: Run tests
       run: |
-        source venv/bin/activate
         if [ -d "tests" ]; then
-          pytest
+          python -m pytest tests/
         else
           echo "No tests directory found, skipping tests."
         fi
