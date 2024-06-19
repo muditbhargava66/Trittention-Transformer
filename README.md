@@ -1,5 +1,8 @@
 # Trittention: Exploring N-way Attention in Transformer Models
 
+![CI](https://github.com/muditbhargava66/Trittention-Transformer.git/actions/workflows/ci.yml/badge.svg)
+![Python](https://img.shields.io/badge/python-3.10-blue.svg)
+
 This repository contains the implementation and exploration of N-way attention, particularly focusing on 3-way attention (trittention), in transformer models. The goal of this project is to investigate the potential benefits and applications of higher-order attention mechanisms.
 
 ## Table of Contents
@@ -17,13 +20,13 @@ This repository contains the implementation and exploration of N-way attention, 
 
 ## Features
 
-- Implementation of standard attention, trittention, trittention cube, local trittention, and mixed attention mechanisms.
-- Configurable hyperparameters for customizing the model architecture.
-- Preprocessing utilities for handling text data and creating input tensors.
-- Evaluation utilities for computing various performance metrics.
-- Example scripts for training and evaluating the models on toy problems.
-- Comprehensive unit tests for ensuring code correctness and reliability.
-- Support for CUDA and Apple MPS for accelerated training on compatible hardware.
+- [*] Implementation of standard attention, trittention, trittention cube, local trittention, and mixed attention mechanisms.
+- [*] Configurable hyperparameters for customizing the model architecture.
+- [*] Preprocessing utilities for handling text data and creating input tensors.
+- [*] Evaluation utilities for computing various performance metrics.
+- [*] Example scripts for training and evaluating the models on toy problems.
+- [*] Comprehensive unit tests for ensuring code correctness and reliability.
+- [ ] Support for CUDA and Apple MPS for accelerated training on compatible hardware.
 
 ## Installation
 
@@ -35,13 +38,11 @@ pip install -r requirements.txt
 
 ## Usage
 
-To train a model on a toy problem, use the `train_toy_problem.py` script in the `examples` directory:
-
-```
-python examples/train_toy_problem.py
-```
-
 Modify the script to specify the desired model configuration, dataset paths, and training hyperparameters.
+
+```
+python examples/evaluate_models.py
+```
 
 ## Code Structure
 
@@ -71,18 +72,19 @@ TrittentionTransformer/
 │   └── cfgs.py
 ├── utils/
 │   ├── __init__.py
-│   ├── data_utils.py
-│   └── evaluation_utils.py
+│   ├── data_utils.py [**pending**]
+│   └── evaluation_utils.py [**pending**]
 ├── experiments/
 │   ├── induction_head.ipynb [**pending**]
 │   └── ...
+├── results/
 ├── tests/
 │   ├── __init__.py
 │   ├── test_attention.py
 │   ├── test_trittention.py
 │   └── ...
 └── examples/
-    ├── train_toy_problem.py
+    ├── evaluate_models.py
     └── ...
 ```
 

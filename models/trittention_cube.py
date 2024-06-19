@@ -2,11 +2,34 @@
 
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
 import math
 
 class TrittentionCube(nn.Module):
+    """
+    Implements a cubic tri-attention mechanism.
+
+    Attributes:
+        hidden_size (int): The size of the hidden layers.
+        num_attention_heads (int): The number of attention heads.
+        attention_head_size (int): The size of each attention head.
+        all_head_size (int): Total size of all attention heads.
+        query (nn.Linear): Linear layer to project hidden states to query.
+        key (nn.Linear): Linear layer to project hidden states to key.
+        value (nn.Linear): Linear layer to project hidden states to value.
+        cube_key (nn.Linear): Linear layer to project hidden states to cubic key.
+        cube_value (nn.Linear): Linear layer to project hidden states to cubic value.
+        dropout (nn.Dropout): Dropout layer.
+    """
     def __init__(self, config):
+        """
+        Initializes the TrittentionCube class with the given configuration.
+
+        Args:
+            config: Configuration object with attributes:
+                hidden_size (int): Size of hidden layers.
+                num_attention_heads (int): Number of attention heads.
+                attention_probs_dropout_prob (float): Dropout probability for attention probabilities.
+        """
         super().__init__()
         self.hidden_size = config.hidden_size
         self.num_attention_heads = config.num_attention_heads
@@ -21,12 +44,31 @@ class TrittentionCube(nn.Module):
 
         self.dropout = nn.Dropout(config.attention_probs_dropout_prob)
 
-    def transpose_for_scores(self, x):
+    def transpose_for_scores(self, x: torch.Tensor) -> torch.Tensor:
+        """
+        Transposes the input tensor to shape (batch_size, num_attention_heads, seq_length, attention_head_size).
+
+        Args:
+            x (torch.Tensor): Input tensor.
+
+        Returns:
+            torch.Tensor: Transposed tensor.
+        """
         new_x_shape = x.size()[:-1] + (self.num_attention_heads, self.attention_head_size)
         x = x.view(*new_x_shape)
         return x.permute(0, 2, 1, 3)
 
-    def forward(self, hidden_states, attention_mask=None):
+    def forward(self, hidden_states: torch.Tensor, attention_mask: torch.Tensor = None) -> torch.Tensor:
+        """
+        Performs forward pass for the cubic tri-attention mechanism.
+
+        Args:
+            hidden_states (torch.Tensor): Input hidden states.
+            attention_mask (torch.Tensor, optional): Attention mask to prevent attention to certain positions.
+
+        Returns:
+            torch.Tensor: Contextualized output after applying cubic tri-attention.
+        """
         mixed_query_layer = self.query(hidden_states)
         mixed_key_layer = self.key(hidden_states)
         mixed_value_layer = self.value(hidden_states)
