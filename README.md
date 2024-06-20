@@ -20,12 +20,12 @@ This repository contains the implementation and exploration of N-way attention, 
 
 ## Features
 
-- [*] Implementation of standard attention, trittention, trittention cube, local trittention, and mixed attention mechanisms.
-- [*] Configurable hyperparameters for customizing the model architecture.
-- [*] Preprocessing utilities for handling text data and creating input tensors.
-- [*] Evaluation utilities for computing various performance metrics.
-- [*] Example scripts for training and evaluating the models on toy problems.
-- [*] Comprehensive unit tests for ensuring code correctness and reliability.
+- [x] Implementation of standard attention, trittention, trittention cube, local trittention, and mixed attention mechanisms.
+- [x] Configurable hyperparameters for customizing the model architecture.
+- [x] Preprocessing utilities for handling text data and creating input tensors.
+- [x] Evaluation utilities for computing various performance metrics.
+- [x] Example scripts for training and evaluating the models on toy problems.
+- [x] Comprehensive unit tests for ensuring code correctness and reliability.
 - [ ] Support for CUDA and Apple MPS for accelerated training on compatible hardware.
 
 ## Installation
