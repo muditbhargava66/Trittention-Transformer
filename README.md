@@ -1,7 +1,8 @@
 # Trittention: Exploring N-way Attention in Transformer Models
 
-![CI](https://github.com/muditbhargava66/Trittention-Transformer.git/actions/workflows/ci.yml/badge.svg)
+[![CI](https://github.com/muditbhargava66/Trittention-Transformer/actions/workflows/ci.yml/badge.svg)](https://github.com/muditbhargava66/Trittention-Transformer/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/python-3.10-blue.svg)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 This repository contains the implementation and exploration of N-way attention, particularly focusing on 3-way attention (trittention), in transformer models. The goal of this project is to investigate the potential benefits and applications of higher-order attention mechanisms.
 
