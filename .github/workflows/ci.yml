@@ -37,11 +37,8 @@ jobs:
 
     - name: Run tests
       run: |
-        if [ -d "tests" ]; then
-          python -m pytest tests/
-        else
-          echo "No tests directory found, skipping tests."
-        fi
+          source venv/bin/activate
+          pytest tests/
 
     - name: Run model evaluation
       run: |
