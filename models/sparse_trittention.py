@@ -73,7 +73,9 @@ class SparseTrittention(nn.Module):
         
         if self.use_low_rank:
             assert self.rank > 0 and self.rank <= self.attention_head_size, \
-                f"Rank must be between 1 and {self.attention_head_size}, got {self.rank}"
+                f"Rank must be between 1 and {self.attention_head_size}, got {self.rank}. " \
+                f"For hidden_size={self.hidden_size} and num_attention_heads={self.num_attention_heads}, " \
+                f"attention_head_size={self.attention_head_size}. Rank cannot exceed attention_head_size."
         
         # Standard projection layers
         self.query = nn.Linear(config.hidden_size, self.all_head_size)

@@ -162,7 +162,11 @@ python -m unittest discover
 
 For benchmarking tests:
 ```bash
-python -m unittest tests.test_sparse_trittention.TestSparseTrittention.test_benchmark --benchmark
+# Recommended: Use the pytest runner script
+python scripts/run_benchmark_pytest.py
+
+# Alternative: Set the environment variable manually and run with pytest
+PYTEST_BENCHMARK=1 pytest tests/test_sparse_trittention.py::TestSparseTrittention::test_benchmark -v
 ```
 
 ### Documentation
