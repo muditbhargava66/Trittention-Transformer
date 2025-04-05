@@ -52,6 +52,15 @@ class TrittentionConfig:
     num_local_heads: int = 4
     """The number of local attention heads in mixed attention."""
     
+    sparsity_threshold: float = 0.01
+    """The threshold for pruning attention scores in sparse trittention."""
+    
+    window_overlap: int = 32
+    """The overlap between adjacent windows in windowed trittention."""
+    
+    num_global_tokens: int = 0
+    """The number of global tokens that attend to all positions."""
+    
     def __post_init__(self):
         """Validate and finalize the configuration."""
         assert self.hidden_size % self.num_attention_heads == 0, "Hidden size must be divisible by the number of attention heads."

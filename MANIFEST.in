@@ -1,10 +1,23 @@
 include LICENSE
 include README.md
+include CONTRIBUTING.md
 include pyproject.toml
+include requirements.txt
+include setup.py
 
 recursive-include config *.py
-recursive-include data *
-recursive-include examples *.py
 recursive-include models *.py
-recursive-include tests *.py
 recursive-include utils *.py
+recursive-include tests *.py
+recursive-include examples *.py *.ipynb
+recursive-include data/toy_problems *.txt *.csv *.json
+
+recursive-exclude * __pycache__
+recursive-exclude * *.py[cod]
+recursive-exclude * *.so
+recursive-exclude * .DS_Store
+recursive-exclude * .git*
+recursive-exclude results *
+recursive-exclude venv *
+recursive-exclude .pytest_cache *
+recursive-exclude .ipynb_checkpoints *
